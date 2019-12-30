@@ -1,0 +1,41 @@
+addfont; Arial;9;Bold;Group;
+addfont; Microsoft Sans Serif;8;Regular;Names;
+addfont; Arial;14;Bold;Slogan;
+
+scene;20;
+addstring;Пакетный перекодировщик текста;Group;
+addstring;v 0.0.2b;Group;
+addstring;Распространяется бесплатно;Names;
+addstring;                      ;Names;
+addstring;Developers;Group;
+addstring;[Wildsoft/ChaosSoft];Group;
+addstring;                      ;Names;
+addstring;Idea by;Group;
+addstring;PunkArr[];Names;
+addstring;Code by;Group;
+addstring;D. Larin;Names;
+addstring;Chang Min Ho;Names;
+addstring;PunkArr[];Names;
+addstring;Design;Group;
+addstring;D. Larin;Names;
+addstring;PunkArr[];Names;
+addstring;Chaos. Cry. Destruction.;Group;
+addstring;PunkArr[];Names;
+addstring;Testing;Group;
+addstring;D. Larin;Names;
+addstring;Tommy Ilves;Names;
+addstring;PunkArr[];Names;
+addstring;Beer & Samogon;Group;
+addstring;Tommy Ilves;Names;
+addstring;Raivo Keronen;Names;
+
+scene;20;3000; ~сцена 2
+
+addstring;Об ошибках и предложениях;Names
+addstring;пишите на сайты:;Names
+addstring;http://lj.rossia.org/users/hex_laden;Names;87 CE EB;
+addstring;http://tolik-punkoff.com;Names;87 CE EB;
+
+scene;20;10000; ~сцена со слоганом
+
+addstring;Make code, not war C# like you.;Slogan;FF FF 00;
