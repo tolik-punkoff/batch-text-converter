@@ -25,7 +25,7 @@ Windows XP/7/8/10
 
 .NET Framework 2.0.
 
-256 Ìb memory
+256 Mb memory
 
 ## Command line keys:
 
