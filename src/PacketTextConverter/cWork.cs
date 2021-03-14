@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Text;
 using System.IO;
+using FindFilesByMask;
 
 namespace PacketTextConverter
 {
@@ -72,20 +73,11 @@ namespace PacketTextConverter
             stMessage = "[" + dt.ToString() + "]:" + stMessage;
             GlobalStateChanged(stMessage, StateCode);            
         }
+        
 
-        private string GetExtension(string FileName)
+        private OperationState FindFilesMask(string stPath, string stMask, bool bRecurs) //ищет файлы 1 маски
         {
-            FileName = FileName.Replace('*', '_');
-            FileName = FileName.Replace('?', '-');
-            FileInfo fi = new FileInfo(FileName);
-            return fi.Extension;
-        }
-
-        private OperationState FindFiles(string stPath, string stMask, bool bRecurs) //ищет файлы 1 маски
-        {
-            int FoundCtr = 0; //счетчик для кривофикса
-            string MaskExt = GetExtension(stMask); //и это для кривофикса
-
+            string[] files = null;
             SearchOption so = SearchOption.AllDirectories;
             if (!bRecurs)
             {
@@ -94,20 +86,12 @@ namespace PacketTextConverter
 
             try
             {
-                LogStateAdd("Поиск файлов " + stMask + "...",0); 
-                string[] files = Directory.GetFiles(stPath, stMask, so);                
-                foreach (string filename in files)
-                {
-                    //оказывается родная функция криво ищет файлы
-                    //принимает *.htm и *.html за одно и то же
-                    //кривофикс
-                    string FileExt = GetExtension(filename);
-                    if (FileExt == MaskExt)
-                    {
-                        FoundCtr++;
-                        FoundFiles.Add(filename);
-                    }
-                }
+                LogStateAdd("Поиск файлов " + stMask + "...",0);                 
+                //оказывается родная функция криво ищет файлы
+                //принимает *.htm и *.html за одно и то же
+                //более прямофикс
+                files = FindFiles.Find(stPath, stMask, so);
+                FoundFiles.AddRange(files);                
             }
             catch (UnauthorizedAccessException UAEx)
             {
@@ -130,7 +114,7 @@ namespace PacketTextConverter
                 return OperationState.IOError;
             }
 
-            LogStateAdd("Поиск файлов " + stMask + " завершен. Найдено " + FoundCtr + " файлов", 0);
+            LogStateAdd("Поиск файлов " + stMask + " завершен. Найдено " + files.Length + " файлов", 0);
             return OperationState.Success;
         }
 
@@ -150,7 +134,7 @@ namespace PacketTextConverter
             GlobalLogStateAdd("Начат поиск файлов...", 0);
             for (int i = 0; i < FileMasks.Count; i++)
             {                
-                if (FindFiles(SourceCatalog, FileMasks[i].ToString(), Recursive)
+                if (FindFilesMask(SourceCatalog, FileMasks[i].ToString(), Recursive)
                     == OperationState.IOError)
                 {
                     GlobalLogStateAdd("Поиск файлов завершился из-за ошибки", 

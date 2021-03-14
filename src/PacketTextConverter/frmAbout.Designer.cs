@@ -79,7 +79,7 @@
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(317, 50);
             this.lblCopyright.TabIndex = 3;
-            this.lblCopyright.Text = "(L) [Wildsoft/ChaosSoft], 2016-2019";
+            this.lblCopyright.Text = "(L) [Wildsoft/ChaosSoft], 2016-2021";
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pctMessages

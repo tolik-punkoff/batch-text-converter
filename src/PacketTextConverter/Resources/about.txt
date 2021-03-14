@@ -4,7 +4,7 @@ addfont; Arial;14;Bold;Slogan;
 
 scene;20;
 addstring;Пакетный перекодировщик текста;Group;
-addstring;v 0.0.2b;Group;
+addstring;v 0.0.3b;Group;
 addstring;Распространяется бесплатно;Names;
 addstring;                      ;Names;
 addstring;Developers;Group;

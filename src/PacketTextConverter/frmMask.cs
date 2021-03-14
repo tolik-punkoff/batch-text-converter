@@ -35,18 +35,12 @@ namespace PacketTextConverter
         }
 
         private void btnOK_Click(object sender, EventArgs e)
-        {            
+        {
+            dctMasks.Clear();
             for (int i = 0; i < lstMasks.Items.Count;i++)
             {
                 string mask = lstMasks.Items[i].ToString();
-                if (dctMasks.ContainsKey(mask))
-                {
-                    dctMasks[mask] = lstMasks.GetItemChecked(i);
-                }
-                else
-                {
-                    dctMasks.Add(lstMasks.Items[i].ToString(), lstMasks.GetItemChecked(i));
-                }
+                dctMasks.Add(lstMasks.Items[i].ToString(), lstMasks.GetItemChecked(i));                
             }
             
             Settings.SaveAllMasks(dctMasks);

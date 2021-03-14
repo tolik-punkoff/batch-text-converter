@@ -19,6 +19,10 @@ Small and free batch text converter. This programm change file(s) in folder (and
 
 - Config file format changed by XML
 
+## v 0.0.3b update:
+
++ Fixed some bugs
+
 ## System requirements:
 
 Windows XP/7/8/10
